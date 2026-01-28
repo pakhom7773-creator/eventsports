@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sportsevents.controllers.CreateEventController"
+      spacing="15" style="-fx-background-color: #f8fafc; -fx-padding: 20;">
+   
+   <Label text="Создание мероприятия" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1e40af;"/>
+   
+   <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+      <Label text="Название *" style="-fx-font-weight: bold;"/>
+      <TextField fx:id="titleField" promptText="Введите название мероприятия"/>
+      
+      <Label text="Описание" style="-fx-font-weight: bold;"/>
+      <TextArea fx:id="descriptionField" promptText="Введите описание" prefRowCount="4" wrapText="true"/>
+      
+      <Label text="Вид спорта *" style="-fx-font-weight: bold;"/>
+      <ComboBox fx:id="sportTypeCombo" promptText="Выберите вид спорта"/>
+      
+      <Label text="Место проведения *" style="-fx-font-weight: bold;"/>
+      <TextField fx:id="locationField" promptText="Например: Москва, Стадион Лужники"/>
+      
+      <Label text="Дата начала *" style="-fx-font-weight: bold;"/>
+      <DatePicker fx:id="startDatePicker"/>
+      
+      <HBox spacing="10">
+         <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Время начала" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="startTimeField" promptText="HH:mm"/>
+         </VBox>
+         <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Время окончания" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="endTimeField" promptText="HH:mm"/>
+         </VBox>
+      </HBox>
+      
+      <Label text="URL изображения" style="-fx-font-weight: bold;"/>
+      <TextField fx:id="imageUrlField" promptText="https://..."/>
+      
+      <Label fx:id="errorLabel" style="-fx-text-fill: red; -fx-font-size: 12px;" visible="false"/>
+      
+      <HBox spacing="10">
+         <Button fx:id="saveButton" text="Создать" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-pref-width: 120; -fx-pref-height: 40;"/>
+         <Button fx:id="cancelButton" text="Отмена" style="-fx-background-color: #64748b; -fx-text-fill: white; -fx-pref-width: 120; -fx-pref-height: 40;"/>
+      </HBox>
+   </VBox>
+</VBox>
+
+
+
+

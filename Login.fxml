@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sportsevents.controllers.AuthController"
+      alignment="CENTER" spacing="20" style="-fx-background-color: linear-gradient(to bottom, #f8fafc, #e2e8f0);">
+   <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+   
+   <Label text="СпортСобытия" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #1e40af;">
+      <font>
+         <Font name="System Bold" size="32.0"/>
+      </font>
+   </Label>
+   <Label text="Информационная система" style="-fx-font-size: 14px; -fx-text-fill: #64748b;"/>
+   
+   <Separator/>
+   
+   <!-- Login Pane -->
+   <VBox fx:id="loginPane" spacing="15" alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 30;">
+      <Label text="Вход в систему" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+      
+      <TextField fx:id="loginEmail" promptText="Email" prefWidth="300"/>
+      <PasswordField fx:id="loginPassword" promptText="Пароль" prefWidth="300"/>
+      
+      <Label fx:id="loginError" style="-fx-text-fill: red; -fx-font-size: 12px;"/>
+      
+      <Button fx:id="loginButton" text="Войти" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-pref-width: 300; -fx-pref-height: 40;"/>
+      
+      <Button fx:id="switchToRegister" text="Нет аккаунта? Зарегистрироваться" style="-fx-background-color: transparent; -fx-text-fill: #2563eb;"/>
+   </VBox>
+   
+   <!-- Register Pane -->
+   <VBox fx:id="registerPane" spacing="15" alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 30;" visible="false">
+      <Label text="Регистрация" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+      
+      <TextField fx:id="registerEmail" promptText="Email" prefWidth="300"/>
+      <PasswordField fx:id="registerPassword" promptText="Пароль" prefWidth="300"/>
+      <TextField fx:id="registerFullName" promptText="ФИО" prefWidth="300"/>
+      <ComboBox fx:id="registerRole" prefWidth="300" promptText="Роль"/>
+      
+      <Label fx:id="registerError" style="-fx-text-fill: red; -fx-font-size: 12px;"/>
+      
+      <Button fx:id="registerButton" text="Зарегистрироваться" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-pref-width: 300; -fx-pref-height: 40;"/>
+      
+      <Button fx:id="switchToLogin" text="Уже есть аккаунт? Войти" style="-fx-background-color: transparent; -fx-text-fill: #2563eb;"/>
+   </VBox>
+</VBox>
+
+
+
+

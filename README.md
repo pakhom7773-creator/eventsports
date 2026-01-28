@@ -1,114 +1,75 @@
-# Frontend - Next.js приложение
+# ☕ Java Backend (Spring Boot)
 
-## Описание
+## Backend API на Java для информационно-справочной системы спортивных мероприятий
 
-Современное веб-приложение на Next.js 14 с TypeScript и Tailwind CSS для информационно-справочной системы спортивных мероприятий.
+---
 
-## Технологии
+## 🚀 Быстрый запуск
 
-- **Next.js 14** - React фреймворк с App Router
-- **TypeScript** - типизированный JavaScript
-- **Tailwind CSS** - utility-first CSS фреймворк
-- **Axios** - HTTP клиент
-- **Lucide React** - иконки
-- **date-fns** - работа с датами
+### Требования:
+- Java 17+
+- Maven 3.6+
 
-## Структура проекта
-
-```
-frontend_nextjs/
-├── app/                    # App Router страницы
-│   ├── events/[id]/       # Страница деталей мероприятия
-│   ├── profile/           # Страница профиля
-│   ├── layout.tsx         # Главный layout
-│   ├── page.tsx           # Главная страница
-│   └── globals.css        # Глобальные стили
-├── components/            # React компоненты
-│   ├── AddEventModal.tsx  # Модальное окно создания мероприятия
-│   ├── EventList.tsx      # Список мероприятий
-│   ├── Filters.tsx        # Фильтры поиска
-│   ├── Header.tsx         # Шапка сайта
-│   ├── LoginModal.tsx     # Модальное окно входа/регистрации
-│   ├── ReviewForm.tsx     # Форма отзыва
-│   ├── ReviewList.tsx     # Список отзывов
-│   └── SubscriptionButton.tsx # Кнопка подписки
-├── hooks/                 # React хуки
-│   └── useAuth.ts        # Хук для аутентификации
-├── lib/                   # Утилиты
-│   └── api.ts            # API клиент
-└── types/                 # TypeScript типы
-    └── index.ts
-```
-
-## Установка и запуск
-
-### Локальная разработка
-
-1. **Установите зависимости:**
-   ```bash
-   npm install
-   ```
-
-2. **Создайте файл `.env.local`:**
-   ```env
-   NEXT_PUBLIC_API_URL=http://localhost:8000
-   ```
-
-3. **Запустите dev сервер:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Откройте http://localhost:3000**
-
-### Production сборка
+### Запуск:
 
 ```bash
-npm run build
-npm start
+cd backend_java
+mvn spring-boot:run
 ```
 
-## Деплой на Vercel
+Backend будет доступен на: **http://localhost:8000**
 
-1. **Подключите репозиторий к Vercel**
+---
 
-2. **Настройте переменные окружения:**
-   - `NEXT_PUBLIC_API_URL` - URL вашего backend API
+## 📋 Технологии
 
-3. **Деплой произойдет автоматически**
+- **Spring Boot 3.2** - фреймворк
+- **Spring Data JPA** - работа с БД
+- **Spring Security** - безопасность
+- **JWT** - аутентификация
+- **H2 Database** - для разработки
+- **PostgreSQL** - для production
 
-Подробнее в [DEPLOY.md](../DEPLOY.md)
+---
 
-## Основные страницы
+## ⚙️ Настройка
 
-- `/` - Главная страница со списком мероприятий
-- `/events/[id]` - Детальная страница мероприятия
-- `/profile` - Профиль пользователя
+### База данных (H2 для разработки):
+По умолчанию используется H2 in-memory база данных.
 
-## Компоненты
+### Для PostgreSQL:
+Измените `application.properties`:
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/sports
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+```
 
-### EventList
-Отображает список мероприятий в виде карточек с возможностью перехода к деталям.
+---
 
-### Filters
-Фильтры для поиска мероприятий:
-- По названию
-- По виду спорта
-- По городу
-- По дате начала/окончания
+## 📚 API Endpoints
 
-### ReviewForm
-Форма для создания отзыва с рейтингом (1-5 звезд).
+- `POST /api/auth/register` - регистрация
+- `POST /api/auth/login` - вход
+- `GET /api/events` - список мероприятий
+- `GET /api/events/{id}` - детали мероприятия
+- `POST /api/events` - создание мероприятия
+- `DELETE /api/events/{id}` - удаление мероприятия
+- `GET /api/health` - проверка работы
 
-### ReviewList
-Список отзывов с отображением рейтинга и комментариев.
+---
 
-### SubscriptionButton
-Кнопка для подписки на мероприятия по виду спорта или городу.
+## 🔧 Сборка
 
-## API интеграция
+```bash
+mvn clean package
+java -jar target/sports-events-backend-1.0.0.jar
+```
 
-Все запросы к API выполняются через `lib/api.ts`. API клиент автоматически добавляет JWT токен из localStorage к запросам.
+---
+
+**Backend готов к использованию!**
 
 
 

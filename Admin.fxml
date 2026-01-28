@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sportsevents.controllers.AdminController"
+            style="-fx-background-color: #f8fafc;">
+   
+   <top>
+      <HBox spacing="10" style="-fx-background-color: #7c3aed; -fx-padding: 15;">
+         <Label text="🛡️ Админ-панель" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+         <Region HBox.hgrow="ALWAYS"/>
+         <Button fx:id="backButton" text="Назад" style="-fx-background-color: white; -fx-text-fill: #7c3aed;" onAction="#handleBack"/>
+      </HBox>
+   </top>
+   
+   <center>
+      <VBox spacing="20" style="-fx-padding: 20;">
+         <!-- Stats -->
+         <HBox spacing="15">
+            <VBox alignment="CENTER" spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS">
+               <Label text="Пользователей" style="-fx-text-fill: #64748b;"/>
+               <Label fx:id="statsUsers" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2563eb;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS">
+               <Label text="Мероприятий" style="-fx-text-fill: #64748b;"/>
+               <Label fx:id="statsEvents" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #10b981;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS">
+               <Label text="Организаторов" style="-fx-text-fill: #64748b;"/>
+               <Label fx:id="statsOrganizers" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #7c3aed;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS">
+               <Label text="Отзывов" style="-fx-text-fill: #64748b;"/>
+               <Label fx:id="statsReviews" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #f59e0b;"/>
+            </VBox>
+         </HBox>
+         
+         <!-- Events Table -->
+         <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;">
+            <HBox spacing="10">
+               <Label text="Управление мероприятиями" style="-fx-font-size: 18px; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+               <Label text="Сортировка:"/>
+               <ComboBox fx:id="sortCombo" prefWidth="150"/>
+               <Button fx:id="deleteEventButton" text="Удалить" style="-fx-background-color: #ef4444; -fx-text-fill: white;" onAction="#handleDeleteEvent"/>
+            </HBox>
+            <TableView fx:id="eventsTable">
+               <columns>
+                  <TableColumn fx:id="eventTitleColumn" text="Название" prefWidth="250"/>
+                  <TableColumn fx:id="eventSportColumn" text="Вид спорта" prefWidth="120"/>
+                  <TableColumn fx:id="eventLocationColumn" text="Место" prefWidth="180"/>
+                  <TableColumn fx:id="eventDateColumn" text="Дата" prefWidth="120"/>
+               </columns>
+            </TableView>
+         </VBox>
+      </VBox>
+   </center>
+</BorderPane>
+
